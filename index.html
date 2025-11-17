@@ -33,26 +33,30 @@
   </style>
 
   <style>
-    /* 白天模式 */
+    /* 粉嫩白天模式 */
     :root {
-      --bg-color: #ffffff;
-      --text-color: #333333;
-      --link-color: #0066cc;
-      --header-bg: #f8f9fa;
-      --section-bg: #f1f3f5;
-      --profile-bg: #ffffff;
-      --profile-text: #333333;
+      --bg-color: #fff0f5;  /* 淡粉色背景 */
+      --text-color: #4a4a4a;  /* 深灰文字 */
+      --link-color: #ff69b4;  /* 粉红色链接 */
+      --header-bg: #ffe4ec;  /* 粉色头部 */
+      --section-bg: #ffd4e5;  /* 稍深粉色区块 */
+      --profile-bg: #ffebf0;  /* 个人介绍背景 */
+      --profile-text: #4a4a4a;  /* 深色文字 */
+      --accent-color: #ff85c0;  /* 强调色 */
+      --border-color: #ffc0d9;  /* 边框色 */
     }
     
-    /* 修正的黑夜模式 - 提高对比度 */
+    /* 粉嫩黑夜模式 */
     .dark-mode {
-      --bg-color: #121212;  /* 深灰背景 */
-      --text-color: #e0e0e0; /* 亮灰文字 */
-      --link-color: #4dabf7; /* 亮蓝色链接 */
-      --header-bg: #1e1e1e;  /* 稍浅的深灰 */
-      --section-bg: #2d2d2d;  /* 中灰色区块 */
-      --profile-bg: #252525;  /* 个人介绍区块背景 */
-      --profile-text: #f0f0f0; /* 亮白文字 */
+      --bg-color: #2a1a24;  /* 深紫粉背景 */
+      --text-color: #ffd4e5;  /* 淡粉文字 */
+      --link-color: #ff85c0;  /* 亮粉链接 */
+      --header-bg: #3d2632;  /* 深粉头部 */
+      --section-bg: #4a2f3f;  /* 深粉区块 */
+      --profile-bg: #3d2632;  /* 个人介绍背景 */
+      --profile-text: #ffe4ec;  /* 亮粉文字 */
+      --accent-color: #ff69b4;  /* 强调色 */
+      --border-color: #663d52;  /* 边框色 */
     }
 
     /* 应用到各个元素 */
@@ -60,26 +64,96 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       transition: background-color 0.3s, color 0.3s;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     
     header {
-      background-color: var(--header-bg);
+      background: linear-gradient(135deg, var(--header-bg) 0%, var(--section-bg) 100%);
+      padding: 15px 30px;
+      box-shadow: 0 2px 10px rgba(255, 105, 180, 0.2);
+      border-bottom: 2px solid var(--border-color);
+    }
+    
+    .logo a {
+      color: var(--accent-color);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 1.2em;
+    }
+    
+    .nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    
+    .nav a {
+      color: var(--link-color);
+      text-decoration: none;
+      padding: 5px 15px;
+      border-radius: 15px;
+      transition: all 0.3s;
+    }
+    
+    .nav a:hover {
+      background-color: var(--accent-color);
+      color: white;
     }
     
     .section-table, .content-table {
-      background-color: var(--section-bg);
+      background: linear-gradient(135deg, var(--section-bg) 0%, var(--profile-bg) 100%);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.15);
+      border: 2px solid var(--border-color);
+    }
+    
+    .section-heading {
+      color: var(--accent-color);
+      font-size: 1.5em;
+      font-weight: 600;
+      padding: 10px;
+      border-bottom: 3px solid var(--accent-color);
+      margin-bottom: 10px;
     }
     
     a {
       color: var(--link-color);
+      transition: all 0.3s;
+    }
+    
+    a:hover {
+      color: var(--accent-color);
+      text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
     }
     
     /* 特别修正个人介绍区域的显示 */
     .profile-description {
       color: var(--profile-text);
-      background-color: var(--profile-bg);
-      padding: 15px;
-      border-radius: 8px;
+      background: linear-gradient(135deg, var(--profile-bg) 0%, var(--section-bg) 100%);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(255, 105, 180, 0.2);
+      border: 2px solid var(--border-color);
+    }
+    
+    .profile-name {
+      color: var(--accent-color);
+      font-size: 2em;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    
+    .prof-image {
+      border-radius: 50%;
+      border: 4px solid var(--accent-color);
+      box-shadow: 0 5px 20px rgba(255, 105, 180, 0.3);
+      transition: transform 0.3s;
+    }
+    
+    .prof-image:hover {
+      transform: scale(1.05);
     }
     
     /* 模式切换按钮 */
@@ -87,38 +161,96 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       border-radius: 50%;
-      background-color: var(--header-bg);
-      color: var(--text-color);
+      background: linear-gradient(135deg, var(--accent-color) 0%, var(--link-color) 100%);
+      color: white;
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
       z-index: 1000;
-      font-size: 20px;
+      font-size: 24px;
+      transition: all 0.3s;
+      border: 3px solid white;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1) rotate(15deg);
+      box-shadow: 0 6px 25px rgba(255, 105, 180, 0.6);
+    }
+    
+    .pub-image {
+      border-radius: 10px;
+      border: 2px solid var(--border-color);
+      transition: all 0.3s;
+    }
+    
+    .pub-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    }
+    
+    papertitle {
+      color: var(--accent-color);
+      font-weight: 600;
+    }
+    
+    strong {
+      color: var(--accent-color);
+    }
+    
+    ul {
+      line-height: 1.8;
+    }
+    
+    li::marker {
+      color: var(--accent-color);
+    }
+    
+    /* 表格样式 */
+    table {
+      width: 100%;
+    }
+    
+    .profile-table, .section-table, .content-table {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+    
+    /* 响应式设计 */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .nav ul {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 
 
 <body>
-  <header>
+  <header style="display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; right: 0; z-index: 999; transition: transform 0.3s;">
     <div class="logo">
       <a href="https://liu-yang-maker.github.io/yangpage.github.io/">Xiaotong Wu's Homepage</a>
     </div>
     <nav class="nav">
-      <ul>
-        <li><a href="https://liu-yang-maker.github.io/yangpage.github.io/">Home</a></li>
-        <li><a href="liuyang2020@amss.ac.cn">Contact</a></li>
+      <ul style="margin: 0; padding: 0;">
+        <li style="list-style: none;"><a href="https://liu-yang-maker.github.io/yangpage.github.io/">Home</a></li>
+        <li style="list-style: none;"><a href="mailto:liuyang2020@amss.ac.cn">Contact</a></li>
       </ul>
     </nav>
   </header>
   
   <table
-    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:75px;">
+    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:100px;">
     <tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
@@ -128,14 +260,11 @@
           <table class="profile-table">
             <tbody>
               <tr>
-                <td class="profile-description">
+                <td class="profile-description" style="width: 60%;">
                   <p class="profile-name">Xiaotong Wu 武晓彤</p>
                   <p class="profile-bio">Hi, I am Xiaotong Wu (武晓彤). I am a Ph.D. student at the Donghua University, specializing in Electrochemistry, Materials Chemistry and Catalysis. </p>
-                  <!-- <p class="profile-now">Now, I am a <strong>Qingyun</strong> intern at Hunyuan from Tencent, working on LLM post-train at Beijing, China!</p> -->
-                  <!-- <p class="profile-collaboration"><strong>Looking for research collaborators on meaningful projects and feel free to contact with me if you are interested! Also, I'm in job market and actively seeking industry positions.</strong></p> -->
                   <p class="profile-links">
                     <a href="mailto:liuyang2020@amss.ac.cn">Email</a> &nbsp/&nbsp
-                    <!-- <a href="13572160700">Wechat</a> &nbsp/&nbsp -->
                     <a href="https://github.com/liu-yang-maker">Github</a>                   
                   </p>
                 </td>
@@ -143,8 +272,8 @@
                 <td style="padding:2.5%;width:40%;max-width:40%">
                   <a href="files/xiaotong.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="files/xiaotong.jpg" class="prof-image"></a>
                   <!-- 添加的文字 -->
-                  <div style="text-align: center; margin-top: 10px; font-size: 0.9em;">
-                    My Profile Photo
+                  <div style="text-align: center; margin-top: 10px; font-size: 0.9em; color: var(--accent-color);">
+                    💖 My Profile Photo 💖
                   </div>
                 </td>
               </tr>
@@ -157,7 +286,7 @@
             <tbody>
               <tr>
                 <td class="section-heading">
-                  News in the Past One Year
+                  🌸 News in the Past One Year 🌸
                 </td>
               </tr>
             </tbody>
@@ -169,48 +298,18 @@
                     <td style="padding:10px 10px;width:100%;vertical-align:middle;text-align:justify">
                         <p style="margin-left: 5%; text-align:left">
                             <strong>[2025.02]</strong> &#x1F389; Happy New Year!
-                            <!-- <br>
-                            <strong>[2024.09]</strong> &#x1F389; One paper is accepted by ICDM 2024! -->
                         </p>
                     </td>
                 </tr>
             </tbody>
         </table>
 
-        <!-- <table class="section-table">
-          <tbody>
-            <tr>
-              <td class="section-heading">
-                Intern Experience
-              </td>
-            </tr>
-          </tbody>
-
-          <table class="content-table">
-            <tbody>
-              <tr>
-                <td style="padding:10px 10px;width:100%;vertical-align:middle;text-align:justify">
-                  <ul style="margin-left: 5%; text-align:left;">
-                    <li>腾讯混元<a href="https://join.qq.com/qingyun.html?activity=998339352544759808&activityLink=999025524921159680">[青云计划]</a>，后训练组，2025. 模型长记忆，复杂指令遵循。</li>
-                    <li>宇谷科技，2024. 大模型，网络运筹。</li>
-                    <li>百度研究院，认知计算实验室(CCL)，2022. 推理，知识图谱</li>
-                  </ul>
-                </td>
-              </tr>
-            </tbody>
-          </table> -->
-
-
-
-
-
-
 
         <table class="section-table">
           <tbody>
             <tr>
               <td class="section-heading">
-                Education
+                🎓 Education 🎓
               </td>
             </tr>
           </tbody>
@@ -221,10 +320,6 @@
                 <td style="padding:10px 10px;width:100%;vertical-align:middle;text-align:justify">
                   <ul style="margin-left: 5%; text-align:left;">
                     <li>Ph.D. student, Donghua University, 2021 - 2026 (expected).</li>
-                    <!-- <li>Bachelor in Mathematics and Applied Mathematics (Honors Program), Xi'an Jiaotong University, 2016 - 2020.</li>
-                    <li>Summer Visiting Student, Peking University, 2020.7&2024.7.</li>
-                    <li>Exchange Student, Michigan State University, 2019.</li>
-                    <li>Visiting Student, University of Alberta, 2018.</li> -->
                   </ul>
                 </td>
               </tr>
@@ -238,7 +333,7 @@
             <tbody>
               <tr>
                 <td class="section-heading">
-                  Selected Publications
+                  📚 Selected Publications 📚
                 </td>
               </tr>
             </tbody>
@@ -346,19 +441,19 @@
 
 
   <script>
-    // 点击页面出现花花效果
+    // 点击页面出现花花效果（增强粉色系）
     document.addEventListener('click', function(e) {
-      const colors = ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#8000ff', '#ff00ff'];
-      const flowers = ['🌸', '🌺', '🌻', '🌼', '🌷', '💐', '🏵️', '🌹'];
+      const colors = ['#ff69b4', '#ff85c0', '#ffc0cb', '#ffb6c1', '#ff1493', '#ff69b4', '#ffa0d2', '#ffb3d9'];
+      const flowers = ['🌸', '🌺', '💗', '💖', '🌷', '💐', '🏵️', '🌹', '💕', '🎀'];
       
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 8; i++) {
         const flower = document.createElement('div');
         flower.className = 'flower';
         flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
         flower.style.left = e.pageX + (Math.random() - 0.5) * 100 + 'px';
         flower.style.top = e.pageY - 20 + 'px';
         flower.style.color = colors[Math.floor(Math.random() * colors.length)];
-        flower.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        flower.style.fontSize = (Math.random() * 20 + 15) + 'px';
         flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
         
         document.body.appendChild(flower);
@@ -375,7 +470,7 @@
   // 白天/黑夜模式切换
   const themeToggle = document.createElement('div');
   themeToggle.className = 'theme-toggle';
-  themeToggle.innerHTML = '🌓';
+  themeToggle.innerHTML = '🌙';
   document.body.appendChild(themeToggle);
   
   themeToggle.addEventListener('click', function() {
@@ -399,4 +494,3 @@
 </body>
 
 </html>
-
