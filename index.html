@@ -4,9 +4,9 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-  <title>Yang Liu</title>
+  <title>Xiaotong Wu - 武晓彤</title>
 
-  <meta name="author" content="Yang Liu">
+  <meta name="author" content="Xiaotong Wu">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
@@ -33,30 +33,26 @@
   </style>
 
   <style>
-    /* 粉嫩白天模式 */
+    /* 白天模式 */
     :root {
-      --bg-color: #fff0f5;  /* 淡粉色背景 */
-      --text-color: #4a4a4a;  /* 深灰文字 */
-      --link-color: #ff69b4;  /* 粉红色链接 */
-      --header-bg: #ffe4ec;  /* 粉色头部 */
-      --section-bg: #ffd4e5;  /* 稍深粉色区块 */
-      --profile-bg: #ffebf0;  /* 个人介绍背景 */
-      --profile-text: #4a4a4a;  /* 深色文字 */
-      --accent-color: #ff85c0;  /* 强调色 */
-      --border-color: #ffc0d9;  /* 边框色 */
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --link-color: #0066cc;
+      --header-bg: #f8f9fa;
+      --section-bg: #f1f3f5;
+      --profile-bg: #ffffff;
+      --profile-text: #333333;
     }
     
-    /* 粉嫩黑夜模式 */
+    /* 修正的黑夜模式 - 提高对比度 */
     .dark-mode {
-      --bg-color: #2a1a24;  /* 深紫粉背景 */
-      --text-color: #ffd4e5;  /* 淡粉文字 */
-      --link-color: #ff85c0;  /* 亮粉链接 */
-      --header-bg: #3d2632;  /* 深粉头部 */
-      --section-bg: #4a2f3f;  /* 深粉区块 */
-      --profile-bg: #3d2632;  /* 个人介绍背景 */
-      --profile-text: #ffe4ec;  /* 亮粉文字 */
-      --accent-color: #ff69b4;  /* 强调色 */
-      --border-color: #663d52;  /* 边框色 */
+      --bg-color: #121212;  /* 深灰背景 */
+      --text-color: #e0e0e0; /* 亮灰文字 */
+      --link-color: #4dabf7; /* 亮蓝色链接 */
+      --header-bg: #1e1e1e;  /* 稍浅的深灰 */
+      --section-bg: #2d2d2d;  /* 中灰色区块 */
+      --profile-bg: #252525;  /* 个人介绍区块背景 */
+      --profile-text: #f0f0f0; /* 亮白文字 */
     }
 
     /* 应用到各个元素 */
@@ -64,97 +60,26 @@
       background-color: var(--bg-color);
       color: var(--text-color);
       transition: background-color 0.3s, color 0.3s;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     
     header {
-      background: linear-gradient(135deg, var(--header-bg) 0%, var(--section-bg) 100%);
-      padding: 8px 20px;
-      box-shadow: 0 2px 10px rgba(255, 105, 180, 0.2);
-      border-bottom: 2px solid var(--border-color);
-    }
-    
-    .logo a {
-      color: var(--accent-color);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.95em;
-    }
-    
-    .nav ul {
-      list-style: none;
-      display: flex;
-      gap: 15px;
-    }
-    
-    .nav a {
-      color: var(--link-color);
-      text-decoration: none;
-      padding: 4px 12px;
-      border-radius: 12px;
-      transition: all 0.3s;
-      font-size: 0.9em;
-    }
-    
-    .nav a:hover {
-      background-color: var(--accent-color);
-      color: white;
+      background-color: var(--header-bg);
     }
     
     .section-table, .content-table {
-      background: linear-gradient(135deg, var(--section-bg) 0%, var(--profile-bg) 100%);
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.15);
-      border: 2px solid var(--border-color);
-    }
-    
-    .section-heading {
-      color: var(--accent-color);
-      font-size: 1.5em;
-      font-weight: 600;
-      padding: 10px;
-      border-bottom: 3px solid var(--accent-color);
-      margin-bottom: 10px;
+      background-color: var(--section-bg);
     }
     
     a {
       color: var(--link-color);
-      transition: all 0.3s;
-    }
-    
-    a:hover {
-      color: var(--accent-color);
-      text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
     }
     
     /* 特别修正个人介绍区域的显示 */
     .profile-description {
       color: var(--profile-text);
-      background: linear-gradient(135deg, var(--profile-bg) 0%, var(--section-bg) 100%);
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 5px 20px rgba(255, 105, 180, 0.2);
-      border: 2px solid var(--border-color);
-    }
-    
-    .profile-name {
-      color: var(--accent-color);
-      font-size: 2em;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    
-    .prof-image {
-      border-radius: 50%;
-      border: 4px solid var(--accent-color);
-      box-shadow: 0 5px 20px rgba(255, 105, 180, 0.3);
-      transition: transform 0.3s;
-    }
-    
-    .prof-image:hover {
-      transform: scale(1.05);
+      background-color: var(--profile-bg);
+      padding: 15px;
+      border-radius: 8px;
     }
     
     /* 模式切换按钮 */
@@ -162,132 +87,257 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent-color) 0%, var(--link-color) 100%);
-      color: white;
+      background-color: var(--header-bg);
+      color: var(--text-color);
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
       z-index: 1000;
-      font-size: 24px;
-      transition: all 0.3s;
-      border: 3px solid white;
+      font-size: 20px;
+    }
+
+    /* 返回顶部按钮 */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--header-bg);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+      font-size: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* 爱情链接样式 */
+    .love-link {
+      position: relative;
+      transition: all 0.3s ease;
     }
     
-    .theme-toggle:hover {
-      transform: scale(1.1) rotate(15deg);
-      box-shadow: 0 6px 25px rgba(255, 105, 180, 0.6);
+    .love-link:hover {
+      color: #ff69b4 !important;
+      transform: scale(1.1);
     }
     
-    .pub-image {
+    .love-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ff69b4, #ff1493);
+      transition: width 0.3s ease;
+    }
+    
+    .love-link:hover::after {
+      width: 100%;
+    }
+
+    /* 火影忍者语录样式 */
+    .naruto-quote {
+      padding: 30px;
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.1) 0%, rgba(255, 192, 203, 0.05) 100%);
+      border-left: 4px solid #ff69b4;
       border-radius: 10px;
-      border: 2px solid var(--border-color);
-      transition: all 0.3s;
+      margin: 20px 0;
+      position: relative;
+      animation: fadeInUp 0.8s ease-out;
     }
     
-    .pub-image:hover {
-      transform: scale(1.05);
-      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    .naruto-quote::before {
+      content: '🔥';
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      font-size: 30px;
+      background: var(--bg-color);
+      padding: 0 10px;
     }
     
-    papertitle {
-      color: var(--accent-color);
+    .quote-text {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 15px;
+      line-height: 1.8;
+      font-style: italic;
+    }
+    
+    .quote-translation {
+      font-size: 16px;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      line-height: 1.8;
+      opacity: 0.9;
+    }
+    
+    .quote-meaning {
+      font-size: 15px;
+      color: var(--text-color);
+      line-height: 2;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark-mode .quote-meaning {
+      border-top-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .quote-meaning em {
+      color: #ff69b4;
+      font-style: normal;
       font-weight: 600;
     }
     
-    strong {
-      color: var(--accent-color);
+    .dark-mode .naruto-quote {
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.15) 0%, rgba(255, 192, 203, 0.08) 100%);
+      border-left-color: #ff69b4;
     }
     
-    ul {
-      line-height: 1.8;
+    /* 暗色模式下的profile-love样式 */
+    .dark-mode .profile-love {
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.15), rgba(255, 192, 203, 0.08)) !important;
     }
     
-    li::marker {
-      color: var(--accent-color);
-    }
-    
-    /* 表格样式 */
-    table {
-      width: 100%;
-    }
-    
-    .profile-table, .section-table, .content-table {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto 30px;
-    }
-    
-    /* 响应式设计 */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
-      
-      .nav ul {
-        justify-content: center;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
+    }
+
+    /* 学术俏皮元素 */
+    .profile-name {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .profile-name::after {
+      content: '✨';
+      position: absolute;
+      right: -30px;
+      top: 0;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+    
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* 改进的卡片阴影效果 */
+    .content-table {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .content-table:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 学术风格的装饰 */
+    .section-heading {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-heading::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #ff69b4, #4dabf7);
     }
   </style>
 </head>
 
 
 <body>
-  <header style="display: flex; justify-content: space-between; align-items: center; position: fixed; top: 0; left: 0; right: 0; z-index: 999; transition: transform 0.3s;">
+  <header>
     <div class="logo">
-      <a href="https://liu-yang-maker.github.io/yangpage.github.io/">Xiaotong Wu's Homepage</a>
+      <a href="https://xiaotong.github.io/">Xiaotong's Homepage</a>
     </div>
     <nav class="nav">
-      <ul style="margin: 0; padding: 0;">
-        <li style="list-style: none;"><a href="https://liu-yang-maker.github.io/yangpage.github.io/">Home</a></li>
-        <li style="list-style: none;"><a href="mailto:liuyang2020@amss.ac.cn">Contact</a></li>
+      <ul>
+        <li><a href="https://xiaotong.github.io/">Home</a></li>
+        <li><a href="https://www.researchgate.net/profile/Xiaotong-Wu-25">ResearchGate</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
   </header>
   
   <table
-    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:100px;">
+    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:75px;">
     <tbody>
       <tr style="padding:0px">
         <td style="padding:0px">
 
 
-          <!-- Bio -->
-          <table class="profile-table">
-            <tbody>
-              <tr>
-                <td class="profile-description" style="width: 60%;">
-                  <p class="profile-name">Xiaotong Wu 武晓彤</p>
-                  <p class="profile-bio">Hi, I am Xiaotong Wu (武晓彤). I am a Ph.D. student at the Donghua University, specializing in Electrochemistry, Materials Chemistry and Catalysis. </p>
-                  <p class="profile-links">
-                    <a href="mailto:liuyang2020@amss.ac.cn">Email</a> &nbsp/&nbsp
-                    <a href="https://github.com/liu-yang-maker">Github</a>                   
-                  </p>
-                </td>
-                <!-- profile image -->
-                <td style="padding:2.5%;width:40%;max-width:40%">
-                  <a href="figs/xiaotong.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="figs/xiaotong.jpg" class="prof-image"></a>
-                  <!-- 添加的文字 -->
-                  <div style="text-align: center; margin-top: 10px; font-size: 0.9em; color: var(--accent-color);">
-                    💖 My Profile Photo 💖
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <!--News-->
+                        <!-- Bio -->
+              <table class="profile-table">
+                <tbody>
+                  <tr>
+                    <td class="profile-description">
+                      <p class="profile-name">Xiaotong Wu 武晓彤</p>
+                      <p class="profile-bio">Hi, I am Xiaotong Wu (武晓彤). I am currently a Ph.D. student at Donghua University, Shanghai, affiliated with the Key Laboratory of High-Performance Fiber and Product, Ministry of Education. My research focuses on electrocatalysis, particularly water splitting, hydrogen production, heterogeneous catalysis, and catalyst synthesis/characterization. I received my Bachelor's degree from North China University of Science and Technology (华北理工大学).
+                      </p>
+                      <p class="profile-now">我是武晓彤。目前在东华大学攻读博士学位，隶属于高性能纤维及制品教育部重点实验室。研究方向为电催化，主要包括水分解、制氢、多相催化及催化剂合成与表征。本科毕业于华北理工大学。
+                      </p>
+                      <p class="profile-links" id="contact">
+                        <a href="mailto:xiaotongwu@dhu.edu.cn">Email</a> &nbsp/&nbsp
+                        <a href="https://www.researchgate.net/profile/Xiaotong-Wu-25">ResearchGate</a>
+                      </p>
+                    </td>
+                    <!-- 右侧图片列 -->
+                    <td style="padding:2.5%;width:40%;max-width:40%">
+                      <div>
+                        <a href="files/liu_and_tong.jpeg">
+                          <img style="width:100%;max-width:100%" alt="profile photo" src="files/liu_and_tong.jpeg" class="prof-image">
+                        </a>
+                        <div style="text-align: center; margin-top: 10px; font-size: 0.9em;">
+                          📷 武晓彤
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!--News-->
 
 
           <table class="section-table">
             <tbody>
               <tr>
                 <td class="section-heading">
-                  🌸 News in the Past One Year 🌸
+                  News
                 </td>
               </tr>
             </tbody>
@@ -298,7 +348,21 @@
                 <tr>
                     <td style="padding:10px 10px;width:100%;vertical-align:middle;text-align:justify">
                         <p style="margin-left: 5%; text-align:left">
-                            <strong>[2025.02]</strong> &#x1F389; Happy New Year!
+                            <strong>[2026.01]</strong> &#x1F389; One paper on dopant-free stabilization of ruthenium oxide for acidic water electrolysis is published!
+                            <br>
+                            <strong>[2025.10]</strong> &#x1F389; One paper on cationic vacancy enriched NiFe LDH with Co doping for alkaline water oxidation is published!
+                            <br>
+                            <strong>[2025.06]</strong> &#x1F389; One paper on coordination engineering in ruthenium oxide for acidic OER is published!
+                            <br>
+                            <strong>[2025.04]</strong> &#x1F389; Two papers on water electrolysis and seawater electrolysis are published!
+                            <br>
+                            <strong>[2025.03]</strong> &#x1F389; Co-authored a review on anode alchemy for efficient water electrolysis!
+                            <br>
+                            <strong>[2024.08]</strong> &#x1F389; Co-authored a review on scaling up stability for industrial water electrolysis!
+                            <br>
+                            <strong>[2024.07]</strong> &#x1F389; One paper on ferromagnetic-interaction-induced spin symmetry broken in RuO2 is published!
+                            <br>
+                            <strong>[2024.01]</strong> &#x1F389; One paper on pluralistic electronic structure modulation of RuO2 is published!
                         </p>
                     </td>
                 </tr>
@@ -306,11 +370,16 @@
         </table>
 
 
+
+
+
+
+
         <table class="section-table">
           <tbody>
             <tr>
               <td class="section-heading">
-                🎓 Education 🎓
+                Education
               </td>
             </tr>
           </tbody>
@@ -320,7 +389,8 @@
               <tr>
                 <td style="padding:10px 10px;width:100%;vertical-align:middle;text-align:justify">
                   <ul style="margin-left: 5%; text-align:left;">
-                    <li>Ph.D. student, Donghua University, 2021 - 2026 (expected).</li>
+                    <li>Ph.D. student, Donghua University (东华大学), Shanghai. Key Laboratory of High-Performance Fiber and Product, Ministry of Education.</li>
+                    <li>Bachelor, North China University of Science and Technology (华北理工大学).</li>
                   </ul>
                 </td>
               </tr>
@@ -334,7 +404,7 @@
             <tbody>
               <tr>
                 <td class="section-heading">
-                  📚 Selected Publications 📚
+                  Selected Publications
                 </td>
               </tr>
             </tbody>
@@ -342,90 +412,181 @@
           <table
           class="content-table">
             <tbody>
-
-
               <tr>
-                <td style="padding:10px 20px;width:40%;vertical-align:middle">
-                  <img src="figs/small2025.jpg" class="pub-image" height="135">
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Dopant-free stabilization of ruthenium oxide via metallic Ru-induced d-orbital modulation for acidic water electrolysis</papertitle><br>
+                  Wei Luo, ..., Jin Tian, Faiza Meharban, Tan Lei, <u>Xiaotong Wu</u><br>
+                  <em>2026</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/399678205">ResearchGate</a>
                 </td>
-                <td width="60%" valign="middle">
-                  <papertitle>Anode Alchemy on Multiscale: Engineering from Intrinsic Activity to Impedance Optimization for Efficient Water Electrolysis</papertitle>
-                  <br>
-                  <u>Xiaotong Wu</u>, Faiza Meharban, Jingsan Xu, Zian Zhao, Xiangmin Tang, Lei Tan, Yujie Song, Weibo Hu, Qi Xiao, Chao Lin, Xiaopeng Li, Yejian Xue, Wei Luo
-                  <br>
-                  <em>Small, 2025</em>
-                  <br>
-                  <a href="https://onlinelibrary.wiley.com/doi/10.1002/smll.202411704">Link</a>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Cationic vacancy enriched NiFe layered double hydroxide with Co doping for ultra-stable ampere-level alkaline water oxidation</papertitle><br>
+                  Xiaopeng Li, ..., <u>Xiaotong Wu</u>, Faheem Abbas, Faiza Meharban<br>
+                  <em>Oct 2025</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/397001667">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Coordination Engineering Modulates Spin-Polarization in Ruthenium Oxide to Enhance Acidic Oxygen Evolution Reaction</papertitle><br>
+                  Ralf Wehrspohn, ..., Siyi Ding, Huilin Fan, Tan Lei<br>
+                  <em>Jun 2025</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/392938594">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Atomic Ga triggers spatiotemporal coordination of oxygen radicals for efficient water oxidation on crystalline RuO2</papertitle><br>
+                  Wei Luo, ..., Tan Lei, Chao Lin, Haifeng Wang<br>
+                  <em>Apr 2025</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/391238722">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Harnessing direct seawater electrolysis for a sustainable offshore Hydrogen future: A critical review and perspective</papertitle><br>
+                  Xiaopeng Li, ..., Shuang Yang, Xiangmin Tang, Faiza Meharban<br>
+                  <em>Apr 2025</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/390379128">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Anode Alchemy on Multiscale: Engineering from Intrinsic Activity to Impedance Optimization for Efficient Water Electrolysis</papertitle><br>
+                  Wei Luo, ..., Jingsan Xu, Faiza Meharban, <u>Xiaotong Wu</u><br>
+                  <em>Mar 2025</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/389588948">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Optimizing Oxygen Reduction Reaction through Enhanced Mesoscopic Mass Transport in Ordered Mesoporous Carbon Nanofibers</papertitle><br>
+                  Wei Luo, ..., Jingsan Xu, Tan Lei, Chuyi Zhao<br>
+                  <em>Dec 2024</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/386495904">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Catalytic Edges in One-Dimensional Covalent Organic Frameworks for the Oxygen Reduction Reaction</papertitle><br>
+                  Wei Luo, ..., Haifeng Wang, Chao Lin, Yumeng Chang<br>
+                  <em>Nov 2024</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/384271364">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Scaling Up Stability: Navigating from Lab Insights to Robust Oxygen Evolution Electrocatalysts for Industrial Water Electrolysis</papertitle><br>
+                  Wei Luo, ..., <u>Xiaotong Wu</u>, Chao Lin, Faiza Meharban<br>
+                  <em>Aug 2024</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/383531928">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Ferromagnetic-Interaction-Induced Spin Symmetry Broken in Ruthenium Oxide for Enhanced Acidic Water Oxidation</papertitle><br>
+                  Wei Luo, ..., Haifeng Wang, <u>Xiaotong Wu</u>, Tan Lei<br>
+                  <em>Jul 2024</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/382246956">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Pluralistic Electronic Structure Modulation of Ruthenium Oxide for Enhanced Acidic Water Electrolysis</papertitle><br>
+                  Wei Luo, ..., Weibo Hu, Chao Lin, <u>Xiaotong Wu</u><br>
+                  <em>Jan 2024</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/377783499">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Multi-Scale Engineered 2D Carbon Polyhedron Array with Enhanced Electrocatalytic Performance</papertitle><br>
+                  Yusuke Yamauchi, ..., Xiaopeng Li, Yujie Song, Xiaokai Song<br>
+                  <em>Nov 2023</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/375310867">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Regulating Pt Electronic Properties on NiFe Layered Double Hydroxide Interface for Highly Efficient Alkaline Water Splitting</papertitle><br>
+                  Tianrong Zhan, ..., Chunhong Qi, Haifeng Wang, Tan Lei<br>
+                  <em>Sep 2023</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/374346471">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Acid-Stable Ru Atom Array for Converting Methanol to Methyl Formate at Commercially Viable Current Densities</papertitle><br>
+                  Jung-Ho Lee, ..., Shuai Yang, Jili Li, Chao Lin<br>
+                  <em>Aug 2023</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/373288188">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <p style="margin-top:15px;">Full publication list: <a href="https://www.researchgate.net/profile/Xiaotong-Wu-25">ResearchGate Profile</a></p>
                 </td>
               </tr>
 
-              <tr>
-                <td style="padding:10px 20px;width:40%;vertical-align:middle">
-                  <img src="figs/nc.jpg" class="pub-image" height="135">
-                </td>
-                <td width="60%" valign="middle">
-                  <papertitle>Atomic Ga triggers spatiotemporal coordination of oxygen radicals for efficient water oxidation on crystalline RuO2</papertitle>
-                  <br>
-                  Haifeng Wang, Chao Lin, Lei Tan, Jing Shen, <u>Xiaotong Wu</u>, Xiangxiang Pan, Qi Xiao, Wan Jiang, Xiaopeng Li, Wei Luo
-                  <br>
-                  <em>Nature Communications, 2025</em>
-                  <br>
-                  <a href="https://www.nature.com/articles/s41467-025-58346-9">Link</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:10px 20px;width:40%;vertical-align:middle">
-                  <img src="figs/aem2024.jpg" class="pub-image" height="135">
-                </td>
-                <td width="60%" valign="middle">
-                  <papertitle>Scaling Up Stability: Navigating from Lab Insights to Robust Oxygen Evolution Electrocatalysts for Industrial Water Electrolysis</papertitle>
-                  <br>
-                  Faiza Meharban, <u>Xiaotong Wu</u>, Lei Tan, Haifeng Wang, Weibo Hu, Dequan Zhou, Xiaopeng Li, Wei Luo
-                  <br>
-                  <em>Advanced Energy Materials, 2024</em>
-                  <br>
-                  <a href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/aenm.202402886">Link</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:10px 20px;width:40%;vertical-align:middle">
-                  <img src="figs/acscatal2024.jpg" class="pub-image" height="135">
-                </td>
-                <td width="60%" valign="middle">
-                  <papertitle>Ferromagnetic-Interaction-Induced Spin Symmetry Broken in Ruthenium Oxide for Enhanced Acidic Water Oxidation</papertitle>
-                  <br>
-                  Lei Tan, <u>Xiaotong Wu</u>, Haifeng Wang, Jianrong Zeng, Bingbao Mei, Xiangxiang Pan, Weibo Hu, Meharban Faiza, Qi Xiao, Yonghui Zhao, Chao Fu, Chao Lin, Xiaopeng Li, Wei Luo
-                  <br>
-                  <em>ACS Catalysis, 2024</em>
-                  <br>
-                  <a href="https://pubs.acs.org/doi/10.1021/acscatal.4c02736">Link</a>
-                </td>
-              </tr>
-
-              <tr>
-                <td style="padding:10px 20px;width:40%;vertical-align:middle">
-                  <img src="figs/smallstr2024.jpg" class="pub-image" height="135">
-                </td>
-                <td width="60%" valign="middle">
-                  <papertitle>Pluralistic Electronic Structure Modulation of Ruthenium Oxide for Enhanced Acidic Water Electrolysis</papertitle>
-                  <br>
-                  <u>Xiaotong Wu</u>, Chao Lin, Weibo Hu, Chao Fu, Lei Tan, Haifeng Wang, Faiza Meharban, Xiangxiang Pan, Pan Fu, Han‐Don Um, Qi Xiao, Xiaopeng Li, Miho Yamauchi, Wei Luo
-                  <br>
-                  <em>Small Structures, 2024</em>
-                  <br>
-                  <a href="https://onlinelibrary.wiley.com/doi/10.1002/sstr.202300518">Link</a>
-                </td>
-              </tr>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+
+              
             </tbody>
           </table>
 
 
         
+          <!-- Research Interests -->
+          <table class="section-table">
+            <tbody>
+              <tr>
+                <td class="section-heading">
+                  🔬 Research Interests
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="content-table">
+            <tbody>
+              <tr>
+                <td style="padding:20px 10px;width:100%;vertical-align:middle;text-align:center">
+                  <div class="naruto-quote">
+                    <p class="quote-text">
+                      Water Splitting &nbsp;·&nbsp; Hydrogen Production &nbsp;·&nbsp; Heterogeneous Catalysis
+                    </p>
+                    <p class="quote-meaning">
+                      <em>—— 电催化与清洁能源</em><br>
+                      专注于质子交换膜水电解、析氧反应 electrocatalysts、催化剂合成与表征。<br>
+                      致力于推动可持续氢能技术的发展，为碳中和目标贡献科研力量。
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
   <script>
   // Get the header
   var header = document.querySelector("header");
@@ -442,19 +603,19 @@
 
 
   <script>
-    // 点击页面出现花花效果（增强粉色系）
+    // 点击页面出现花花效果
     document.addEventListener('click', function(e) {
-      const colors = ['#ff69b4', '#ff85c0', '#ffc0cb', '#ffb6c1', '#ff1493', '#ff69b4', '#ffa0d2', '#ffb3d9'];
-      const flowers = ['🌸', '🌺', '💗', '💖', '🌷', '💐', '🏵️', '🌹', '💕', '🎀'];
+      const colors = ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#8000ff', '#ff00ff'];
+      const flowers = ['🌸', '🌺', '🌻', '🌼', '🌷', '💐', '🏵️', '🌹'];
       
-      for (let i = 0; i < 8; i++) {
+      for (let i = 0; i < 5; i++) {
         const flower = document.createElement('div');
         flower.className = 'flower';
         flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
         flower.style.left = e.pageX + (Math.random() - 0.5) * 100 + 'px';
         flower.style.top = e.pageY - 20 + 'px';
         flower.style.color = colors[Math.floor(Math.random() * colors.length)];
-        flower.style.fontSize = (Math.random() * 20 + 15) + 'px';
+        flower.style.fontSize = (Math.random() * 20 + 10) + 'px';
         flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
         
         document.body.appendChild(flower);
@@ -471,8 +632,28 @@
   // 白天/黑夜模式切换
   const themeToggle = document.createElement('div');
   themeToggle.className = 'theme-toggle';
-  themeToggle.innerHTML = '🌙';
+  themeToggle.innerHTML = '🌓';
   document.body.appendChild(themeToggle);
+
+  // 返回顶部按钮
+  const backToTop = document.createElement('div');
+  backToTop.className = 'back-to-top';
+  backToTop.setAttribute('role', 'button');
+  backToTop.setAttribute('aria-label', 'Back to top');
+  backToTop.innerHTML = '⬆️';
+  document.body.appendChild(backToTop);
+
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  function updateBackToTopVisibility() {
+    if (window.scrollY > 300) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  }
   
   themeToggle.addEventListener('click', function() {
     document.body.classList.toggle('dark-mode');
@@ -490,8 +671,13 @@
     document.body.classList.add('dark-mode');
     themeToggle.innerHTML = '☀️';
   }
+
+  // 初始与滚动时更新返回顶部按钮可见性
+  updateBackToTopVisibility();
+  window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
 </script>
 
 </body>
 
 </html>
+

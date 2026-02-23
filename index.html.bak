@@ -1,0 +1,710 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Xiaotong Wu - 武晓彤</title>
+
+  <meta name="author" content="Xiaotong Wu">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22></text></svg>">
+
+  <style>
+    .flower {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: fall linear forwards;
+    }
+    
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+
+  <style>
+    /* 白天模式 */
+    :root {
+      --bg-color: #ffffff;
+      --text-color: #333333;
+      --link-color: #0066cc;
+      --header-bg: #f8f9fa;
+      --section-bg: #f1f3f5;
+      --profile-bg: #ffffff;
+      --profile-text: #333333;
+    }
+    
+    /* 修正的黑夜模式 - 提高对比度 */
+    .dark-mode {
+      --bg-color: #121212;  /* 深灰背景 */
+      --text-color: #e0e0e0; /* 亮灰文字 */
+      --link-color: #4dabf7; /* 亮蓝色链接 */
+      --header-bg: #1e1e1e;  /* 稍浅的深灰 */
+      --section-bg: #2d2d2d;  /* 中灰色区块 */
+      --profile-bg: #252525;  /* 个人介绍区块背景 */
+      --profile-text: #f0f0f0; /* 亮白文字 */
+    }
+
+    /* 应用到各个元素 */
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    
+    header {
+      background-color: var(--header-bg);
+    }
+    
+    .section-table, .content-table {
+      background-color: var(--section-bg);
+    }
+    
+    a {
+      color: var(--link-color);
+    }
+    
+    /* 特别修正个人介绍区域的显示 */
+    .profile-description {
+      color: var(--profile-text);
+      background-color: var(--profile-bg);
+      padding: 15px;
+      border-radius: 8px;
+    }
+    
+    /* 模式切换按钮 */
+    .theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--header-bg);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+      font-size: 20px;
+    }
+
+    /* 返回顶部按钮 */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--header-bg);
+      color: var(--text-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 1000;
+      font-size: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease-in-out;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* 爱情链接样式 */
+    .love-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .love-link:hover {
+      color: #ff69b4 !important;
+      transform: scale(1.1);
+    }
+    
+    .love-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ff69b4, #ff1493);
+      transition: width 0.3s ease;
+    }
+    
+    .love-link:hover::after {
+      width: 100%;
+    }
+
+    /* 火影忍者语录样式 */
+    .naruto-quote {
+      padding: 30px;
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.1) 0%, rgba(255, 192, 203, 0.05) 100%);
+      border-left: 4px solid #ff69b4;
+      border-radius: 10px;
+      margin: 20px 0;
+      position: relative;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .naruto-quote::before {
+      content: '🔥';
+      position: absolute;
+      top: -15px;
+      left: 20px;
+      font-size: 30px;
+      background: var(--bg-color);
+      padding: 0 10px;
+    }
+    
+    .quote-text {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-color);
+      margin-bottom: 15px;
+      line-height: 1.8;
+      font-style: italic;
+    }
+    
+    .quote-translation {
+      font-size: 16px;
+      color: var(--text-color);
+      margin-bottom: 20px;
+      line-height: 1.8;
+      opacity: 0.9;
+    }
+    
+    .quote-meaning {
+      font-size: 15px;
+      color: var(--text-color);
+      line-height: 2;
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    .dark-mode .quote-meaning {
+      border-top-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .quote-meaning em {
+      color: #ff69b4;
+      font-style: normal;
+      font-weight: 600;
+    }
+    
+    .dark-mode .naruto-quote {
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.15) 0%, rgba(255, 192, 203, 0.08) 100%);
+      border-left-color: #ff69b4;
+    }
+    
+    /* 暗色模式下的profile-love样式 */
+    .dark-mode .profile-love {
+      background: linear-gradient(135deg, rgba(255, 182, 193, 0.15), rgba(255, 192, 203, 0.08)) !important;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* 学术俏皮元素 */
+    .profile-name {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .profile-name::after {
+      content: '✨';
+      position: absolute;
+      right: -30px;
+      top: 0;
+      animation: sparkle 2s ease-in-out infinite;
+    }
+    
+    @keyframes sparkle {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* 改进的卡片阴影效果 */
+    .content-table {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .content-table:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 学术风格的装饰 */
+    .section-heading {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .section-heading::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(180deg, #ff69b4, #4dabf7);
+    }
+  </style>
+</head>
+
+
+<body>
+  <header>
+    <div class="logo">
+      <a href="https://xiaotong.github.io/">Xiaotong's Homepage</a>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="https://xiaotong.github.io/">Home</a></li>
+        <li><a href="https://www.researchgate.net/profile/Xiaotong-Wu-25">ResearchGate</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <table
+    style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;margin-top:75px;">
+    <tbody>
+      <tr style="padding:0px">
+        <td style="padding:0px">
+
+
+                        <!-- Bio -->
+              <table class="profile-table">
+                <tbody>
+                  <tr>
+                    <td class="profile-description">
+                      <p class="profile-name">Xiaotong Wu 武晓彤</p>
+                      <p class="profile-bio">Hi, I am Xiaotong Wu (武晓彤). I am currently a Ph.D. student at Donghua University, Shanghai, affiliated with the Key Laboratory of High-Performance Fiber and Product, Ministry of Education. My research focuses on electrocatalysis, particularly water splitting, hydrogen production, heterogeneous catalysis, and catalyst synthesis/characterization. I received my Bachelor's degree from North China University of Science and Technology (华北理工大学).
+                      </p>
+                      <p class="profile-now">我是武晓彤。目前在东华大学攻读博士学位，隶属于高性能纤维及制品教育部重点实验室。研究方向为电催化，主要包括水分解、制氢、多相催化及催化剂合成与表征。本科毕业于华北理工大学。
+                      </p>
+                      <p class="profile-links" id="contact">
+                        <a href="mailto:xiaotongwu@dhu.edu.cn">Email</a> &nbsp/&nbsp
+                        <a href="https://www.researchgate.net/profile/Xiaotong-Wu-25">ResearchGate</a>
+                      </p>
+                    </td>
+                    <!-- 右侧图片列 -->
+                    <td style="padding:2.5%;width:40%;max-width:40%">
+                      <div>
+                        <a href="files/liu_and_tong.jpeg">
+                          <img style="width:100%;max-width:100%" alt="profile photo" src="files/liu_and_tong.jpeg" class="prof-image">
+                        </a>
+                        <div style="text-align: center; margin-top: 10px; font-size: 0.9em;">
+                          📷 武晓彤
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <!--News-->
+
+
+          <table class="section-table">
+            <tbody>
+              <tr>
+                <td class="section-heading">
+                  News
+                </td>
+              </tr>
+            </tbody>
+
+          </table>
+          <table class="content-table">
+            <tbody>
+                <tr>
+                    <td style="padding:10px 10px;width:100%;vertical-align:middle;text-align:justify">
+                        <p style="margin-left: 5%; text-align:left">
+                            <strong>[2026.01]</strong> &#x1F389; One paper on dopant-free stabilization of ruthenium oxide for acidic water electrolysis is published!
+                            <br>
+                            <strong>[2025.10]</strong> &#x1F389; One paper on cationic vacancy enriched NiFe LDH with Co doping for alkaline water oxidation is published!
+                            <br>
+                            <strong>[2025.06]</strong> &#x1F389; One paper on coordination engineering in ruthenium oxide for acidic OER is published!
+                            <br>
+                            <strong>[2025.04]</strong> &#x1F389; Two papers on water electrolysis and seawater electrolysis are published!
+                            <br>
+                            <strong>[2025.03]</strong> &#x1F389; Co-authored a review on anode alchemy for efficient water electrolysis!
+                            <br>
+                            <strong>[2024.08]</strong> &#x1F389; Co-authored a review on scaling up stability for industrial water electrolysis!
+                            <br>
+                            <strong>[2024.07]</strong> &#x1F389; One paper on ferromagnetic-interaction-induced spin symmetry broken in RuO2 is published!
+                            <br>
+                            <strong>[2024.01]</strong> &#x1F389; One paper on pluralistic electronic structure modulation of RuO2 is published!
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+
+
+        <table class="section-table">
+          <tbody>
+            <tr>
+              <td class="section-heading">
+                Education
+              </td>
+            </tr>
+          </tbody>
+
+          <table class="content-table">
+            <tbody>
+              <tr>
+                <td style="padding:10px 10px;width:100%;vertical-align:middle;text-align:justify">
+                  <ul style="margin-left: 5%; text-align:left;">
+                    <li>Ph.D. student, Donghua University (东华大学), Shanghai. Key Laboratory of High-Performance Fiber and Product, Ministry of Education.</li>
+                    <li>Bachelor, North China University of Science and Technology (华北理工大学).</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+
+          <!-- Publications -->
+          <table
+          class="section-table">
+            <tbody>
+              <tr>
+                <td class="section-heading">
+                  Selected Publications
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table
+          class="content-table">
+            <tbody>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Dopant-free stabilization of ruthenium oxide via metallic Ru-induced d-orbital modulation for acidic water electrolysis</papertitle><br>
+                  Wei Luo, ..., Jin Tian, Faiza Meharban, Tan Lei, <u>Xiaotong Wu</u><br>
+                  <em>2026</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/399678205">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Cationic vacancy enriched NiFe layered double hydroxide with Co doping for ultra-stable ampere-level alkaline water oxidation</papertitle><br>
+                  Xiaopeng Li, ..., <u>Xiaotong Wu</u>, Faheem Abbas, Faiza Meharban<br>
+                  <em>Oct 2025</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/397001667">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Coordination Engineering Modulates Spin-Polarization in Ruthenium Oxide to Enhance Acidic Oxygen Evolution Reaction</papertitle><br>
+                  Ralf Wehrspohn, ..., Siyi Ding, Huilin Fan, Tan Lei<br>
+                  <em>Jun 2025</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/392938594">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Atomic Ga triggers spatiotemporal coordination of oxygen radicals for efficient water oxidation on crystalline RuO2</papertitle><br>
+                  Wei Luo, ..., Tan Lei, Chao Lin, Haifeng Wang<br>
+                  <em>Apr 2025</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/391238722">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Harnessing direct seawater electrolysis for a sustainable offshore Hydrogen future: A critical review and perspective</papertitle><br>
+                  Xiaopeng Li, ..., Shuang Yang, Xiangmin Tang, Faiza Meharban<br>
+                  <em>Apr 2025</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/390379128">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Anode Alchemy on Multiscale: Engineering from Intrinsic Activity to Impedance Optimization for Efficient Water Electrolysis</papertitle><br>
+                  Wei Luo, ..., Jingsan Xu, Faiza Meharban, <u>Xiaotong Wu</u><br>
+                  <em>Mar 2025</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/389588948">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Optimizing Oxygen Reduction Reaction through Enhanced Mesoscopic Mass Transport in Ordered Mesoporous Carbon Nanofibers</papertitle><br>
+                  Wei Luo, ..., Jingsan Xu, Tan Lei, Chuyi Zhao<br>
+                  <em>Dec 2024</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/386495904">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Catalytic Edges in One-Dimensional Covalent Organic Frameworks for the Oxygen Reduction Reaction</papertitle><br>
+                  Wei Luo, ..., Haifeng Wang, Chao Lin, Yumeng Chang<br>
+                  <em>Nov 2024</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/384271364">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Scaling Up Stability: Navigating from Lab Insights to Robust Oxygen Evolution Electrocatalysts for Industrial Water Electrolysis</papertitle><br>
+                  Wei Luo, ..., <u>Xiaotong Wu</u>, Chao Lin, Faiza Meharban<br>
+                  <em>Aug 2024</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/383531928">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Ferromagnetic-Interaction-Induced Spin Symmetry Broken in Ruthenium Oxide for Enhanced Acidic Water Oxidation</papertitle><br>
+                  Wei Luo, ..., Haifeng Wang, <u>Xiaotong Wu</u>, Tan Lei<br>
+                  <em>Jul 2024</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/382246956">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Pluralistic Electronic Structure Modulation of Ruthenium Oxide for Enhanced Acidic Water Electrolysis</papertitle><br>
+                  Wei Luo, ..., Weibo Hu, Chao Lin, <u>Xiaotong Wu</u><br>
+                  <em>Jan 2024</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/377783499">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Multi-Scale Engineered 2D Carbon Polyhedron Array with Enhanced Electrocatalytic Performance</papertitle><br>
+                  Yusuke Yamauchi, ..., Xiaopeng Li, Yujie Song, Xiaokai Song<br>
+                  <em>Nov 2023</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/375310867">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Regulating Pt Electronic Properties on NiFe Layered Double Hydroxide Interface for Highly Efficient Alkaline Water Splitting</papertitle><br>
+                  Tianrong Zhan, ..., Chunhong Qi, Haifeng Wang, Tan Lei<br>
+                  <em>Sep 2023</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/374346471">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <papertitle>Acid-Stable Ru Atom Array for Converting Methanol to Methyl Formate at Commercially Viable Current Densities</papertitle><br>
+                  Jung-Ho Lee, ..., Shuai Yang, Jili Li, Chao Lin<br>
+                  <em>Aug 2023</em> &nbsp;|&nbsp;
+                  <a href="https://www.researchgate.net/publication/373288188">ResearchGate</a>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding:15px 20px;width:100%;vertical-align:middle">
+                  <p style="margin-top:15px;">Full publication list: <a href="https://www.researchgate.net/profile/Xiaotong-Wu-25">ResearchGate Profile</a></p>
+                </td>
+              </tr>
+
+
+
+
+
+
+
+
+
+              <tr>
+                <td style="padding:10px 20px;width:40%;vertical-align:middle">
+                  <!-- removed -->
+                </td>
+                <td width="60%" valign="middle">
+                  <!-- heading -->
+                  <papertitle> MQuinE: a cure for “Z-paradox” in knowledge graph embedding
+                  </papertitle>
+                  <!-- authors -->
+                  <br>
+                  <u>Yang Liu</u>,
+                  Huang Fang, Yunfeng Cai, Mingming Sun
+                  <!-- conference & date -->
+                  <br>
+                  <em>EMNLP 2024
+                  <br>
+                  <!-- links -->
+                  <a href="">Project page</a>
+                  / <a> Link</a>
+                </td>
+              </tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+
+              
+            </tbody>
+          </table>
+
+
+        
+          <!-- Naruto Quote Section -->
+          <table class="section-table">
+            <tbody>
+              <tr>
+                <td class="section-heading">
+                  💭 Philosophy
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="content-table">
+            <tbody>
+              <tr>
+                <td style="padding:20px 10px;width:100%;vertical-align:middle;text-align:center">
+                  <div class="naruto-quote">
+                    <p class="quote-text">
+                      "努力は必ず報われる。もし報われない努力があるのならば、それはまだ努力とは呼べない。"
+                    </p>
+                    <p class="quote-translation">
+                      "努力一定会得到回报。如果还有得不到回报的努力，那它还不能被称为努力。"
+                    </p>
+                    <p class="quote-meaning">
+                      <em>—— 火影忍者</em><br>
+                      在学术研究的道路上，我相信持续的努力终会开花结果；<br>
+                      在感情的世界里，我也相信真诚的付出会换来美好的未来。<br>
+                      无论是对待科研还是爱情，我都会全力以赴，永不言弃。
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+  <script>
+  // Get the header
+  var header = document.querySelector("header");
+
+  // When the user scrolls down 20px from the top of the document, hide the header
+  window.onscroll = function() {
+    if (window.pageYOffset > 20) {
+      header.style.transform = "translateY(-100%)";
+    } else {
+      header.style.transform = "translateY(0)";
+    }
+  }
+  </script>
+
+
+  <script>
+    // 点击页面出现花花效果
+    document.addEventListener('click', function(e) {
+      const colors = ['#ff0000', '#ff8000', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#8000ff', '#ff00ff'];
+      const flowers = ['🌸', '🌺', '🌻', '🌼', '🌷', '💐', '🏵️', '🌹'];
+      
+      for (let i = 0; i < 5; i++) {
+        const flower = document.createElement('div');
+        flower.className = 'flower';
+        flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+        flower.style.left = e.pageX + (Math.random() - 0.5) * 100 + 'px';
+        flower.style.top = e.pageY - 20 + 'px';
+        flower.style.color = colors[Math.floor(Math.random() * colors.length)];
+        flower.style.fontSize = (Math.random() * 20 + 10) + 'px';
+        flower.style.animationDuration = (Math.random() * 3 + 2) + 's';
+        
+        document.body.appendChild(flower);
+        
+        // 动画结束后移除元素
+        setTimeout(() => {
+          flower.remove();
+        }, 5000);
+      }
+    });
+  </script>
+
+<script>
+  // 白天/黑夜模式切换
+  const themeToggle = document.createElement('div');
+  themeToggle.className = 'theme-toggle';
+  themeToggle.innerHTML = '🌓';
+  document.body.appendChild(themeToggle);
+
+  // 返回顶部按钮
+  const backToTop = document.createElement('div');
+  backToTop.className = 'back-to-top';
+  backToTop.setAttribute('role', 'button');
+  backToTop.setAttribute('aria-label', 'Back to top');
+  backToTop.innerHTML = '⬆️';
+  document.body.appendChild(backToTop);
+
+  backToTop.addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  function updateBackToTopVisibility() {
+    if (window.scrollY > 300) {
+      backToTop.classList.add('show');
+    } else {
+      backToTop.classList.remove('show');
+    }
+  }
+  
+  themeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    
+    // 保存用户偏好
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode);
+    
+    // 更新按钮图标
+    themeToggle.innerHTML = isDarkMode ? '☀️' : '🌙';
+  });
+  
+  // 检查本地存储中的用户偏好
+  if (localStorage.getItem('darkMode') === 'true') {
+    document.body.classList.add('dark-mode');
+    themeToggle.innerHTML = '☀️';
+  }
+
+  // 初始与滚动时更新返回顶部按钮可见性
+  updateBackToTopVisibility();
+  window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+</script>
+
+</body>
+
+</html>
+
